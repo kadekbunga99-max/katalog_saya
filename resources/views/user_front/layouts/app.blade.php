@@ -13,25 +13,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="{{asset('assets/tailstore/css/styles.css')}}">
-    <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.css">
-    <link rel="stylesheet" href="{{asset('assets/tailstore/css/custom.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/tailstore/css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/tailstore/swiper/swiper-bundle.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/tailstore/css/custom.css') }}">
 </head>
 
 <body>
 
-@include('partials.navbar')
+    @include('user_front.partials.navbar')
 
-<main>
-    @yield('konten')
-</main>
+    <main>
+        @yield('konten')
+    </main>
 
-@include('partials.footer')
+    @include('user_front.partials.footer')
 
 
-    <script src="node_modules/swiper/swiper-bundle.js"></script>
+    <script src="{{ asset('assets/tailstore/swiper/swiper-bundle.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <script src="{{asset('assets/tailstore/js/script.js')}}"></script>
+    <script src="{{ asset('assets/tailstore/js/script.js') }}"></script>
 
 </body>
+
 </html>
