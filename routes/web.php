@@ -10,6 +10,6 @@ Route::get('/kontak', [HalamanController::class, 'kontak'])->name('kontak');
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
 Route::get('/produk/{id}', [ProdukController::class, 'show'])->name('produk.show');
 
-Route::get('/admin', function () {
+Route::get('/backoffice', function () {
     return view('backoffice.dashboard');
 });

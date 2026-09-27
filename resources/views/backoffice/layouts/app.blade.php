@@ -87,7 +87,7 @@
     <!--end::Third Party Plugin(Bootstrap Icons)-->
 
     <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="{{ asset('assets/adminlte/css/adminlte.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/backoffice/css/adminlte.css') }}" />
     <!--end::Required Plugin(AdminLTE)-->
 
     <!-- apexcharts -->
@@ -133,7 +133,7 @@
     <!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-    <script src="{{ asset('assets/adminlte/js/adminlte.js') }}"></script>
+    <script src="{{ asset('assets/backoffice/js/adminlte.js') }}"></script>
     <!--end::Required Plugin(AdminLTE)-->
     <!--begin::OverlayScrollbars Configure-->
     <script>
