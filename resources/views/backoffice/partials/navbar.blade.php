@@ -11,32 +11,16 @@
             </li>
 
             <li class="nav-item d-none d-md-block">
-                <a href="./index.html" class="nav-link">
+                <a href="{{ route('home') }}" class="nav-link">
                     <i class="bi bi-grid-1x2 me-1" aria-hidden="true"></i>
-                    Live preview
+                    Lihat Website
                 </a>
             </li>
-            <li class="nav-item d-none d-md-block">
-                <a href="./docs/introduction.html" class="nav-link">
-                    <i class="bi bi-book me-1" aria-hidden="true"></i>
-                    Documentation
-                </a>
-            </li>
+
         </ul>
         <!--end::Start Navbar Links-->
 
-        <!--begin::Navbar Search-->
-        <form class="navbar-search d-none d-md-block ms-3" role="search" action="./pages/search-results.html">
-            <label for="navbar-search-input" class="visually-hidden">Search</label>
-            <div class="navbar-search-field">
-                <input type="search" id="navbar-search-input" name="q" class="form-control" placeholder="Search…"
-                    autocomplete="off" />
-                <button class="navbar-search-submit" type="submit" aria-label="Submit search">
-                    <i class="bi bi-search" aria-hidden="true"></i>
-                </button>
-            </div>
-        </form>
-        <!--end::Navbar Search-->
+
 
         <!--begin::End Navbar Links-->
         <ul class="navbar-nav ms-auto">
@@ -84,7 +68,7 @@
                             </div>
                             <div class="flex-grow-1">
                                 <p class="dropdown-item-title">
-                                    John Pierce
+                                    {{ auth()->user()->name }}
                                     <span class="float-end fs-7 text-secondary">
                                         <i class="bi bi-star-fill"></i>
                                     </span>
@@ -230,7 +214,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                     <img src="{{ asset('assets/backoffice/img/user2-160x160.jpg') }}"
                         class="user-image rounded-circle shadow" alt="Alexander Pierce" />
-                    <span class="d-none d-md-inline">Alexander Pierce</span>
+                    {{ auth()->user()->name }}
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                     <!--begin::User Image-->
@@ -263,7 +247,11 @@
                     <!--begin::Menu Footer-->
                     <li class="user-footer">
                         <a href="#" class="btn btn-outline-secondary">Profile</a>
-                        <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+
+                        <form action="{{ route('back_office.logout') }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-danger float-end">Sign out</button>
+                        </form>
                     </li>
                     <!--end::Menu Footer-->
                 </ul>
