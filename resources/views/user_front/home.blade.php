@@ -122,12 +122,17 @@
                     <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
 
                         <div class="bg-white p-3 rounded-lg shadow-lg">
-                            <img src="{{ $produk['gambar'] }}" alt="Product 1" class="w-full object-cover mb-4 rounded-lg">
-                            <a href="#" class="text-lg font-semibold mb-2">{{ $produk['nama'] }}</a>
-                            <p class="my-2"> {{ $produk['kategori'] }}</p>
+                            @if ($produk->gambar)
+                                <img src="{{ asset('storage/' . $produk->gambar) }}" alt="{{ $produk->nama_produk }}"
+                                    class="w-full object-cover mb-4 rounded-lg">
+                            @endif
+                            <a href="{{ route('produk.show', $produk) }}" class="text-lg font-semibold mb-2">
+                                {{ $produk->nama_produk }}
+                            </a>
+                            <p class="my-2"> {{ $produk->kategori->nama_kategori }}</p>
                             <div class="flex items-center mb-4">
-                                <span class="text-lg font-bold text-primary"> Rp {{ $produk['harga_coret'] }}</span>
-                                <span class="text-sm line-through ml-2">Rp {{ $produk['harga'] }}</span>
+                                <span class="text-lg font-bold text-primary"> {{ $produk->hargaRupiah() }}</span>
+                                <span class="text-sm line-through ml-2">{{ $produk->hargaCoretRupiah() }}</span>
                             </div>
                             <button
                                 class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Tambahkan
