@@ -24,9 +24,10 @@
                         <div class="grid gap-4">
                             <!-- Big Image -->
                             <div id="main-image-container">
-                                <img id="main-image"
-                                    class="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]"
-                                    src="{{ asset($produk['gambar']) }}" alt="Main Product Image" />
+                                @if ($produk->gambar)
+                                    <img src="{{ asset('storage/' . $produk->gambar) }}" alt="{{ $produk->nama_produk }}"
+                                        class="w-full object-cover mb-4 rounded-lg">
+                                @endif
                             </div>
                             <!-- Small Images -->
                             <div class="grid grid-cols-5 gap-4">
@@ -66,20 +67,20 @@
                     <!-- Product Details Section -->
                     <div class="w-full lg:w-1/2 flex flex-col justify-between">
                         <div class="pb-8 border-b border-gray-line">
-                            <h1 class="text-3xl font-bold mb-4">{{ $produk['nama'] }}</h1>
+                            <h1 class="text-3xl font-bold mb-4"> {{ $produk->nama_produk }}</h1>
                             <div class="flex items-center mb-8">
                                 <span>★★★★★</span>
                                 <span class="ml-2">(0 Reviews)</span>
                                 <a href="#" class="ml-4 text-primary font-semibold">Write a review</a>
                             </div>
                             <div class="mb-4 pb-4 border-b border-gray-line">
-                                <p class="mb-2">Brand:<strong><a href="#" class="hover:text-primary">
-                                            ITA STORE</a></strong>
+                                <p class="mb-2">Kategori :<strong><a href="#" class="hover:text-primary">
+                                            {{ $produk->kategori->nama_kategori }}</a></strong>
                                 </p>
-                                <p class="mb-2">Product code:<strong> {{ $produk['nama'] }}</strong></p>
-                                <p class="mb-2">Availability:<strong> In Stock</strong></p>
+                                <p class="mb-2">Product code:<strong> {{ $produk->kode_produk }}</strong></p>
+                                <p class="mb-2">Availability:<strong> {{ $produk->status }}</strong></p>
                             </div>
-                            <div class="text-2xl font-semibold mb-8">{{ $produk['harga'] }}</div>
+                            <div class="text-2xl font-semibold mb-8">{{ $produk->hargaRupiah() }}</div>
                             <div class="flex items-center mb-8">
                                 <button id="decrease"
                                     class="bg-primary hover:bg-transparent border border-transparent hover:border-primary text-white hover:text-primary font-semibold w-10 h-10 rounded-full flex items-center justify-center focus:outline-none"
