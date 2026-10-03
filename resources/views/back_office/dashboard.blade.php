@@ -1,4 +1,4 @@
-@extends('backoffice.layouts.app')
+@extends('back_office.layouts.app')
 
 @section('judul-halaman', 'Dashboard Julita')
 
