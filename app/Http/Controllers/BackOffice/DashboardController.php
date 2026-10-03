@@ -18,6 +18,6 @@ class DashboardController extends Controller
             'admin_aktif'  => User::where('role', 'admin')->count(),
         ];
 
-        return view('backoffice.dashboard', compact('ringkasan'));
+        return view('back_office.dashboard', compact('ringkasan'));
     }
 }
