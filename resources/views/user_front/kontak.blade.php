@@ -100,7 +100,7 @@
                     </div>
 
                     <h3 class="mb-3 text-lg font-semibold text-gray-900">
-                        Lokasi
+                        {{ __('web.alamat') }}
                     </h3>
 
                     <p class="text-sm leading-6 text-gray-600">
@@ -121,7 +121,7 @@
                     </div>
 
                     <h3 class="mb-3 text-lg font-semibold text-gray-900">
-                        Telepon
+                        {{ __('web.telepon') }}
                     </h3>
 
                     <p class="text-sm leading-6 text-gray-600">
@@ -140,7 +140,7 @@
                     </div>
 
                     <h3 class="mb-3 text-lg font-semibold text-gray-900">
-                        Email
+                        {{ __('web.email') }}
                     </h3>
 
                     <p class="break-all text-sm leading-6 text-gray-600">
@@ -159,7 +159,7 @@
                     </div>
 
                     <h3 class="mb-3 text-lg font-semibold text-gray-900">
-                        Jam Buka
+                        {{ __('web.jam_buka') }}
                     </h3>
 
                     <p class="text-sm leading-6 text-gray-600">
@@ -213,7 +213,7 @@
 
                             <div>
                                 <p class="text-sm font-semibold text-white">
-                                    Alamat Toko
+                                    {{ __('web.alamat') }}
                                 </p>
 
                                 <p class="text-sm text-gray-400">
@@ -232,7 +232,7 @@
 
                             <div>
                                 <p class="text-sm font-semibold text-white">
-                                    Hubungi Kami
+                                    {{ __('web.kontak') }}
                                 </p>
 
                                 <p class="text-sm text-gray-400">
@@ -267,7 +267,7 @@
                         <div class="mb-5">
 
                             <label for="nama" class="mb-2 block text-sm font-medium text-gray-700">
-                                Nama
+                                {{ __('web.nama_lengkap') }}
                             </label>
 
                             <input type="text" id="nama" name="nama" placeholder="Nama lengkap"
@@ -280,7 +280,7 @@
                         <div class="mb-5">
 
                             <label for="email" class="mb-2 block text-sm font-medium text-gray-700">
-                                Email
+                                {{ __('web.email') }}
                             </label>
 
                             <input type="email" id="email" name="email" placeholder="nama@email.com"
@@ -293,7 +293,7 @@
                         <div class="mb-6">
 
                             <label for="pesan" class="mb-2 block text-sm font-medium text-gray-700">
-                                Pesan
+                                {{ __('web.pesan') }}
                             </label>
 
                             <textarea id="pesan" name="pesan" rows="5" placeholder="Tuliskan pesan Anda..."

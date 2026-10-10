@@ -18,7 +18,7 @@
                         </p>
                         <a href="/"
                             class="bg-primary hover:bg-transparent text-white hover:text-white border border-transparent hover:border-white font-semibold px-4 py-2 rounded-full inline-block">
-                            Shop Now
+                            {{ __('web.belanja_now') }}
                         </a>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         </p>
                         <a href="/"
                             class="bg-primary hover:bg-transparent text-white hover:text-white border border-transparent hover:border-white font-semibold px-4 py-2 rounded-full inline-block">
-                            Lihat Koleksi
+                            {{ __('web.belanja_now') }}
                         </a>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         </p>
                         <a href="/"
                             class="bg-primary hover:bg-transparent text-white hover:text-white border border-transparent hover:border-white font-semibold px-4 py-2 rounded-full inline-block">
-                            Shop Now
+                            {{ __('web.belanja_now') }}
                         </a>
                     </div>
                 </div>
@@ -135,8 +135,7 @@
                                 <span class="text-sm line-through ml-2">{{ $produk->hargaCoretRupiah() }}</span>
                             </div>
                             <button
-                                class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Tambahkan
-                                ke keranjang</button>
+                                class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">{{ __('web.tambah_keranjang') }}</button>
                         </div>
 
 

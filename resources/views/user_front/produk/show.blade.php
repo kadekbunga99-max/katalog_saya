@@ -9,7 +9,7 @@
                 <li><span class="mx-2">&gt;</span></li>
                 <li><a href="{{ route('produk') }}" class="font-semibold hover:text-primary">Shop</a></li>
                 <li><span class="mx-2">&gt;</span></li>
-                <li><a href="category.html" class="font-semibold hover:text-primary">{{ $produk['nama'] }}</a></li>
+                <li><a href="category.html" class="font-semibold hover:text-primary">{{ $produk->nama_produk }}</a></li>
             </ol>
         </div>
     </section>
@@ -24,10 +24,9 @@
                         <div class="grid gap-4">
                             <!-- Big Image -->
                             <div id="main-image-container">
-                                @if ($produk->gambar)
-                                    <img src="{{ asset('storage/' . $produk->gambar) }}" alt="{{ $produk->nama_produk }}"
-                                        class="w-full object-cover mb-4 rounded-lg">
-                                @endif
+                                <img id="main-image"
+                                    class="h-auto w-full max-w-full rounded-lg object-cover object-center md:h-[480px]"
+                                    src="{{ asset('storage/' . $produk->gambar) }}" alt="{{ $produk->nama_produk }}" />
                             </div>
                             <!-- Small Images -->
                             <div class="grid grid-cols-5 gap-4">
@@ -74,11 +73,13 @@
                                 <a href="#" class="ml-4 text-primary font-semibold">Write a review</a>
                             </div>
                             <div class="mb-4 pb-4 border-b border-gray-line">
-                                <p class="mb-2">Kategori :<strong><a href="#" class="hover:text-primary">
+                                <p class="mb-2">{{ __('web.kategori') }} :<strong><a href="#"
+                                            class="hover:text-primary">
                                             {{ $produk->kategori->nama_kategori }}</a></strong>
                                 </p>
-                                <p class="mb-2">Product code:<strong> {{ $produk->kode_produk }}</strong></p>
-                                <p class="mb-2">Availability:<strong> {{ $produk->status }}</strong></p>
+                                <p class="mb-2">{{ __('web.kode_produk') }}:<strong> {{ $produk->kode_produk }}</strong>
+                                </p>
+                                <p class="mb-2">{{ __('web.stok') }}:<strong> {{ $produk->stok }}</strong></p>
                             </div>
                             <div class="text-2xl font-semibold mb-8">{{ $produk->hargaRupiah() }}</div>
                             <div class="flex items-center mb-8">
@@ -91,36 +92,35 @@
                                     class="bg-primary hover:bg-transparent border border-transparent hover:border-primary text-white hover:text-primary font-semibold  w-10 h-10 rounded-full focus:outline-none">+</button>
                             </div>
                             <button
-                                class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full">Add
-                                to Cart</button>
+                                class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full">{{ __('web.tambah_keranjang') }}</button>
                         </div>
                         <!-- Social sharing -->
                         <div class="flex space-x-4 my-6">
                             <a href="#" class="w-4 h-4 flex items-center justify-center">
-                                <img src="{{ asset('assets/tailstore/images/social_icons/facebook.svg') }}" alt="Facebook"
+                                <img src="{{ asset('assets/user_front/images/social_icons/facebook.svg') }}" alt="Facebook"
                                     class="w-4 h-4 transition-transform transform hover:scale-110">
                             </a>
                             <a href="#" class="w-4 h-4 flex items-center justify-center">
-                                <img src="{{ asset('assets/tailstore/images/social_icons/instagram.svg') }}"
+                                <img src="{{ asset('assets/user_front/images/social_icons/instagram.svg') }}"
                                     alt="Instagram" class="w-4 h-4 transition-transform transform hover:scale-110">
                             </a>
                             <a href="#" class="w-4 h-4 flex items-center justify-center">
-                                <img src="{{ asset('assets/tailstore/images/social_icons/pinterest.svg') }}"
+                                <img src="{{ asset('assets/user_front/images/social_icons/pinterest.svg') }}"
                                     alt="Pinterest" class="w-4 h-4 transition-transform transform hover:scale-110">
                             </a>
                             <a href="#" class="w-4 h-4 flex items-center justify-center">
-                                <img src="{{ asset('assets/tailstore/images/social_icons/twitter.svg') }}" alt="Twitter"
+                                <img src="{{ asset('assets/user_front/images/social_icons/twitter.svg') }}" alt="Twitter"
                                     class="w-4 h-4 transition-transform transform hover:scale-110">
                             </a>
                             <a href="#" class="w-4 h-4 flex items-center justify-center">
-                                <img src="{{ asset('assets/tailstore/images/social_icons/viber.svg') }}" alt="Viber"
+                                <img src="{{ asset('assets/user_front/images/social_icons/viber.svg') }}" alt="Viber"
                                     class="w-4 h-4 transition-transform transform hover:scale-110">
                             </a>
                         </div>
                         <!-- Additional Information -->
                         <div>
-                            <h3 class="text-lg font-semibold mb-2">Product Description</h3>
-                            <p>{{ $produk['deskripsi'] }}</p>
+                            <h3 class="text-lg font-semibold mb-2">{{ __('web.deskripsi_produk') }}</h3>
+                            <p>{{ $produk->deskripsi }}</p>
                         </div>
                     </div>
                 </div>
@@ -395,78 +395,6 @@
                             </div>
 
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Latest-products -->
-    <section id="latest-products" class="py-10">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8">Latest products</h2>
-            <div class="flex flex-wrap -mx-4">
-                <!-- Product 1 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
-                    <div class="bg-white p-3 rounded-lg shadow-lg">
-                        <img src="assets/images/products/5.jpg" alt="Product 1"
-                            class="w-full object-cover mb-4 rounded-lg">
-                        <a href="#" class="text-lg font-semibold mb-2">Blue women's suit</a>
-                        <p class=" my-2">Women</p>
-                        <div class="flex items-center mb-4">
-                            <span class="text-lg font-bold text-primary">$19.99</span>
-                            <span class="text-sm line-through ml-2">$24.99</span>
-                        </div>
-                        <button
-                            class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add
-                            to Cart</button>
-                    </div>
-                </div>
-                <!-- Product 2 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
-                    <div class="bg-white p-3 rounded-lg shadow-lg">
-                        <img src="assets/images/products/6.jpg" alt="Product 2"
-                            class="w-full object-cover mb-4 rounded-lg">
-                        <a href="#" class="text-lg font-semibold mb-2">White shirt with long sleeves</a>
-                        <p class=" my-2">Women</p>
-                        <div class="flex items-center mb-4">
-                            <span class="text-lg font-bold text-gray-900">$29.99</span>
-                        </div>
-                        <button
-                            class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add
-                            to Cart</button>
-                    </div>
-                </div>
-                <!-- Product 3 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
-                    <div class="bg-white p-3 rounded-lg shadow-lg">
-                        <img src="assets/images/products/7.jpg" alt="Product 3"
-                            class="w-full object-cover mb-4 rounded-lg">
-                        <a href="#" class="text-lg font-semibold mb-2">Yellow men's suit</a>
-                        <p class="my-2">Men</p>
-                        <div class="flex items-center mb-4">
-                            <span class="text-lg font-bold text-gray-900">$15.99</span>
-                            <span class="text-sm line-through  ml-2">$19.99</span>
-                        </div>
-                        <button
-                            class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add
-                            to Cart</button>
-                    </div>
-                </div>
-                <!-- Product 4 -->
-                <div class="w-full sm:w-1/2 lg:w-1/4 px-4 mb-8">
-                    <div class="bg-white p-3 rounded-lg shadow-lg">
-                        <img src="assets/images/products/8.jpg" alt="Product 4"
-                            class="w-full object-cover mb-4 rounded-lg">
-                        <a href="#" class="text-lg font-semibold mb-2">Red dress</a>
-                        <p class="my-2">Women</p>
-                        <div class="flex items-center mb-4">
-                            <span class="text-lg font-bold text-primary">$39.99</span>
-                            <span class="text-sm line-through ml-2">$49.99</span>
-                        </div>
-                        <button
-                            class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add
-                            to Cart</button>
                     </div>
                 </div>
             </div>
