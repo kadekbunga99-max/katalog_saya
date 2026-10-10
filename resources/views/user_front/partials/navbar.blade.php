@@ -22,71 +22,22 @@
          <!-- Center section: Menu -->
          <nav class="hidden lg:flex md:flex-grow justify-center">
              <ul class="flex justify-center space-x-4 text-white">
-                 <li><a href="{{ route('home') }}" class="hover:text-secondary font-semibold">Home</a></li>
-
-                 <!-- Men Dropdown -->
-                 <li class="relative group" x-data="{ open: false }">
-                     <a href="shop.html" @mouseover="open = true" @mouseleave="open = false" href="#"
-                         class="hover:text-secondary font-semibold flex items-center">
-                         Men
-                         <i :class="open ? 'fas fa-chevron-up ml-1 text-xs' : 'fas fa-chevron-down ml-1 text-xs'"></i>
-                     </a>
-                     <ul x-show="open" @mouseover="open = true" @mouseleave="open = false"
-                         class="absolute left-0 bg-white text-black space-y-2 mt-1 p-2 rounded shadow-lg"
-                         x-transition:enter="transition ease-out duration-100"
-                         x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
-                         x-transition:leave="transition ease-in duration-100"
-                         x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
-                         <li><a href="shop.html"
-                                 class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item
-                                 1</a></li>
-                         <li><a href="shop.html"
-                                 class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item
-                                 2</a></li>
-                         <li><a href="shop.html"
-                                 class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Men Item
-                                 3</a></li>
-                     </ul>
-                 </li>
-
-                 <!-- Women Dropdown -->
-                 <li class="relative group" x-data="{ open: false }">
-                     <a href="shop.html" @mouseover="open = true" @mouseleave="open = false" href="#"
-                         class="hover:text-secondary font-semibold flex items-center">
-                         Women
-                         <i :class="open ? 'fas fa-chevron-up ml-1 text-xs' : 'fas fa-chevron-down ml-1 text-xs'"></i>
-                     </a>
-                     <ul x-show="open" @mouseover="open = true" @mouseleave="open = false"
-                         class="absolute left-0 bg-white text-black space-y-2 mt-1 p-2 rounded shadow-lg"
-                         x-transition:enter="transition ease-out duration-100"
-                         x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
-                         x-transition:leave="transition ease-in duration-100"
-                         x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
-                         <li><a href="shop.html"
-                                 class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item
-                                 1</a></li>
-                         <li><a href="shop.html"
-                                 class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item
-                                 2</a></li>
-                         <li><a href="shop.html"
-                                 class="min-w-40 block px-4 py-2 hover:bg-primary hover:text-white rounded">Women Item
-                                 3</a></li>
-                     </ul>
-                 </li>
-
-                 <li><a href="{{ route('produk') }}" class="hover:text-secondary font-semibold">Shop</a></li>
-                 <li><a href="single-product-page.html" class="hover:text-secondary font-semibold">Product</a></li>
-                 <li><a href="{{ route('kontak') }}" class="hover:text-secondary font-semibold">Contact</a></li>
-                 <li><a href="checkout.html" class="hover:text-secondary font-semibold">Checkout</a></li>
+                 <li><a href="{{ route('home') }}"
+                         class="hover:text-secondary font-semibold">{{ __('web.beranda') }}</a></li>
+                 <li><a href="{{ route('produk') }}"
+                         class="hover:text-secondary font-semibold">{{ __('web.produk') }}</a></li>
+                 <li><a href="{{ route('kontak') }}"
+                         class="hover:text-secondary font-semibold">{{ __('web.kontak') }}</a></li>
              </ul>
          </nav>
 
          <!-- Right section: Buttons (for desktop) -->
          <div class="hidden lg:flex items-center space-x-4 relative">
+             @include('user_front.partials.pengalih-bahasa')
              <a href="register.html"
-                 class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-full inline-block">Register</a>
+                 class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-full inline-block">{{ __('web.masuk') }}</a>
              <a href="register.html"
-                 class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-full inline-block">Login</a>
+                 class="bg-primary border border-primary hover:bg-transparent text-white hover:text-primary font-semibold px-4 py-2 rounded-full inline-block">{{ __('web.daftar') }}</a>
              <div class="relative group cart-wrapper">
                  <a href="/cart.html">
                      <img src="{{ asset('assets/user_front/images/cart-shopping.svg') }}" alt="Cart"
@@ -130,8 +81,7 @@
                      class="h-6 w-6 transition-transform transform group-hover:scale-120">
              </a>
              <!-- Search field -->
-             <div id="search-field"
-                 class="hidden absolute top-full right-0 mt-2 w-full bg-white shadow-lg p-2 rounded">
+             <div id="search-field" class="hidden absolute top-full right-0 mt-2 w-full bg-white shadow-lg p-2 rounded">
                  <input type="text" class="w-full p-2 border border-gray-300 rounded"
                      placeholder="Search for products...">
              </div>
