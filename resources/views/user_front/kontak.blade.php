@@ -305,7 +305,7 @@
                         <button type="submit"
                             class="inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-primary hover:ring-1 hover:ring-primary">
 
-                            Kirim Pesan
+                            {{ __('web.kirim_pesan') }}
 
                             <i class="fa-solid fa-arrow-right"></i>
 
