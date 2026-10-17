@@ -30,7 +30,7 @@
 
     @include('user_front.partials.footer')
 
-
+    @stack('scripts')
     <script src="{{ asset('assets/user_front/swiper/swiper-bundle.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="{{ asset('assets/user_front/js/script.js') }}"></script>
