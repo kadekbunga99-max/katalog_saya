@@ -1,7 +1,7 @@
 @extends('back_office.layouts.app')
 
-@section('judul', 'Edit Produk')
-@section('judul-halaman', 'Edit Produk')
+@section('judul', 'Buat Produk')
+@section('judul-halaman', 'Buat Produk')
 
 @section('konten')
 
