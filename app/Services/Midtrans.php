@@ -61,12 +61,13 @@ class Midtrans
         // Ongkos kirim ikut sebagai satu baris agar jumlahnya pas.
         // Masih 0 sampai Pertemuan 11 (RajaOngkir)
         if ((int) round($pesanan->ongkir) > 0) {
-            $rincian[] = [
+             $rincian[] = [
                 'id'       => 'ONGKIR',
-                'name'     => 'Ongkos Kirim',
+                'name'     => Str::limit("Ongkir {$pesanan->kurir} {$pesanan->layanan_kurir}", 47, '...'),
                 'price'    => (int) round($pesanan->ongkir),
                 'quantity' => 1,
             ];
+
         }
 
         // ---------- 5. Memeriksa jumlah sebelum dikirim ----------
