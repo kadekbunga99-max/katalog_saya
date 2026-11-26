@@ -11,6 +11,8 @@ use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\BackOffice\AuthController;
 use App\Http\Controllers\BackOffice\DashboardController;
+use App\Http\Controllers\MidtransNotifikasiController;
+
 
 Route::get('/', [HalamanController::class, 'home'])->name('home');
 Route::get('/kontak', [HalamanController::class, 'kontak'])->name('kontak');
@@ -42,6 +44,8 @@ Route::controller(CheckoutController::class)->prefix('checkout')->name('checkout
         ->name('bayar');
 });
 
+Route::post('/midtrans/notifikasi', MidtransNotifikasiController::class)
+    ->name('midtrans.notifikasi');
 
 
 Route::prefix('back-office')->name('back_office.')->group(function () {
