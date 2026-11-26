@@ -6,14 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pesanan extends Model
 {
-   protected $fillable = [
+ protected $fillable = [
     'kode_pesanan', 'nama_pemesan', 'email', 'telepon',
     'alamat', 'kota', 'kode_pos', 'catatan',
     'subtotal', 'ongkir', 'total', 'status',
-    // ---- baru di Pertemuan 9 ----
     'status_bayar', 'midtrans_order_id', 'midtrans_redirect_url',
     'batas_bayar', 'metode_bayar', 'dibayar_pada', 'stok_dikembalikan',
+    // ---- baru di Pertemuan 11 ----
+    'provinsi', 'kecamatan', 'kecamatan_id',
+    'kurir', 'layanan_kurir', 'estimasi_kirim', 'berat_total',
 ];
+
 
 // Model Pesanan dari Pertemuan 7 belum punya $casts — tambahkan
 protected $casts = [
