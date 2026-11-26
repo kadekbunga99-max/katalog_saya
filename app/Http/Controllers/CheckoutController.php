@@ -218,5 +218,18 @@ class CheckoutController extends Controller
         }
     }
 
+     /** Memeriksa status pembayaran langsung ke Midtrans */
+    public function periksaBayar(Pesanan $pesanan)
+    {
+        abort_unless(
+            session('pesanan_terakhir') === $pesanan->kode_pesanan,
+            403
+        );
+
+        Midtrans::periksaStatus($pesanan);
+
+        return redirect()->route('checkout.selesai', $pesanan->kode_pesanan);
+    }
+
 
 }
