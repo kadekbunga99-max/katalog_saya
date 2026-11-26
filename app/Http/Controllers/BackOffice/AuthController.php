@@ -18,7 +18,7 @@ class AuthController extends Controller
             return redirect()->route('back_office.dashboard');
         }
 
-        return view('backoffice.login');
+        return view('back_office.login');
     }
 
     /**
